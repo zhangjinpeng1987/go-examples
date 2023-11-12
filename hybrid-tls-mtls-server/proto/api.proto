@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/zhangjinpeng1987/hybrid-tls-mtls-server/pkg/proto";
+
+service YourService {
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string greeting = 1;
+}
+
