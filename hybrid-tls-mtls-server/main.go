@@ -49,7 +49,7 @@ func main() {
 	addr := flag.String("addr", ":443", "addr")
 
 	// mTLS or TLS
-	mtls := flag.Bool("mtls", false, "use mtls or tls, 1 means mtls, 0 means tls, default is 0")
+	mtls := flag.Int("mtls", 0, "use mtls or tls, 1 means mtls, 0 means tls, default is 0")
 
 	flag.Parse()
 
@@ -73,9 +73,11 @@ func main() {
 		Certificates: []tls.Certificate{serverCert},
 		ClientCAs:    certPool,
 	}
-	if *mtls {
+	if *mtls != 0 {
 		log.Println("use mTLS")
 		tlsConfig.ClientAuth = tls.RequireAndVerifyClientCert
+	} else {
+		log.Println("use TLS")
 	}
 
 	// Create a TCP listener for both gRPC and HTTP
