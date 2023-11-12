@@ -71,6 +71,7 @@ func main() {
 
 	tlsConfig := &tls.Config{
 		Certificates: []tls.Certificate{serverCert},
+		RootCAs:      certPool,
 		ClientCAs:    certPool,
 	}
 	if *mtls != 0 {
