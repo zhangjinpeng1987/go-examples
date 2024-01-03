@@ -34,7 +34,7 @@ func main() {
 		}
 		buf.Write(b)
 		fmt.Printf("bytes buffer capacity %d\n", buf.Cap())
-		buf.Reset()
+		buf.Truncate(0)
 		fmt.Printf("bytes buffer capacity after reset %d\n", buf.Cap())
 	}
 }
