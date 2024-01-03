@@ -1,6 +1,6 @@
 ### bytes.Buffer memory usage
 
-There is no way to shrink the memory usage for existing bytes.Buffer, neither Reset nor Truncate.
+There is no way to shrink the memory usage for existing bytes.Buffer, neither `Reset` nor `Truncate`.
 
 The output of this should be 
 ```
